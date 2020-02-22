@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush.h                                             :+:      :+:    :+:   */
+/*   dic_create.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnavarre <rnavarre@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/22 17:39:36 by rnavarre          #+#    #+#             */
-/*   Updated: 2020/02/22 20:29:32 by rnavarre         ###   ########.fr       */
+/*   Created: 2020/02/22 20:33:46 by rnavarre          #+#    #+#             */
+/*   Updated: 2020/02/22 20:41:11 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RUSH_H
-# define RUSH_H
-# include "busca_char.h"
-# include "is_printer_chars.h"
-# include "ft_removespc.h"
-# include "strstr.h"
-# include "clean_number.h"
+#include "rush.h"
 
-struct					s_dic
+t_dic	dic_create(char *nb, char *text);
+
+t_dic	dic_create(char *nb, char *text)
 {
-	char					nb;
-	char					text;
-	struct s_dictionary1	*next;
-};
+	t_dic *new_dic;
 
-typedef struct s_dic	t_dic;
-#endif
+	new_dict = malloc(sizeof(t_dic));
+	new_dic->nb = nb;
+	new_dic->text = text;
+	new_dic->next = NULL;
+	return (new_dic);
+}
+
