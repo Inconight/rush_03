@@ -1,0 +1,63 @@
+main
+	carga numero (char * argv)
+		char *numero quita espacios 2 lados (char *argv)
+		
+		comprueba numero (quitar 0 a la derecha, comprobar un solo signo)
+			devuelve char *numero
+	carga diccionario (
+		abrir fichero
+		leer por lineas
+			linea vacia? linea ++ 
+			localizar los <:> de la linea
+			guardar en dos variables las cadenas de antes y despues de los dos puntos
+			primera var. 
+				quitar espacios, comprobar q es numero
+				si no es numero ok? linea ++
+				segunda var
+					quitar espacios de la izquirda
+					comprobar solo caracteres imprimibles
+				comprobaciones ok? 
+				si i = 0 crear estructura
+					sino añadir estructura
+	ordenar diccionario (puntero estructura)
+		devuelve puntero a la estructura
+	imprimir (numero, diccionario, estructura)
+		long = longitud de numero
+		CDU = long % 3
+		miles = long / 3
+			12,345
+			pos = 5
+			CDU = 2
+			miles = 1
+
+		
+		bucle de miles (miles > 0)
+
+			bucle de CDU > 0
+				imprime_digito()
+
+
+				imprime_miles()
+			
+				si CDU = 2
+					si 
+
+				si CDU = 1
+
+
+
+				CDU=3
+
+
+
+
+
+
+
+
+
+crear_diccionario (char * nb, char *texto)
+	calcula posicion
+		devuelve una estructura
+		con nb, texto y posicion
+añadir_elem (punt a struc, char * nb, char *texto)

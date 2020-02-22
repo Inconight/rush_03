@@ -1,0 +1,10 @@
+compilacion 
+	cc -Wall -Wextra -Werror
+entrega
+	Makefile, que compile con reglas
+		$NAME clean y fclean
+
+norminette SIN EL FLAG -R!!!!
+	Asi que cabeceras de las funciones en .h o include a los ficheros.cabeceras
+
+ficheros a entregar
