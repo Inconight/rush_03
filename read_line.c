@@ -6,21 +6,15 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 16:56:48 by marvin            #+#    #+#             */
-/*   Updated: 2020/02/22 20:48:08 by rnavarre         ###   ########.fr       */
+/*   Updated: 2020/02/23 00:55:49 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
 #include "rush.h"
-
-void	copy_str(char *dest, char *src)
-{
-	int i;
-
-	i = -1;
-	while (src[++i] != '\0')
-		dest[i] = src[i];
-	dest[i] = '\0';
-}
 
 char	*read_line(char *path)
 {
@@ -30,11 +24,12 @@ char	*read_line(char *path)
 	char	*buff;
 
 	copy = NULL;
+	buff = NULL;
 	if ((descriptor = open(path, O_RDONLY)) == -1)
 		printf("ERROR\n");
 	else
 	{
-		copy = (char *) malloc(1024);
+		copy = (char *)malloc(1024);
 		if (copy == NULL)
 			return (NULL);
 		i = 0;

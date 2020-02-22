@@ -6,27 +6,31 @@
 /*   By: rnavarre <rnavarre@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 17:39:36 by rnavarre          #+#    #+#             */
-/*   Updated: 2020/02/22 20:52:50 by rnavarre         ###   ########.fr       */
+/*   Updated: 2020/02/23 00:43:05 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RUSH_H
 # define RUSH_H
-# include "busca_char.h"
-# include "is_printer_chars.h"
-# include "ft_removespc.h"
-# include "strstr.h"
-# include "clean_number.h"
-# include "copy_str.h"
-# include "read_line.h"
-# include "ft_readstring.h"
 
 struct					s_dic
 {
-	char					nb;
-	char					text;
-	struct s_dictionary1	*next;
+	char			*nb;
+	char			*text;
+	struct s_dic	*next;
 };
 
 typedef struct s_dic	t_dic;
+char					*read_line(char *path);
+char					*ft_strstr(char *str, char *to_find);
+int						is_printer_chars(char *cadena);
+char					*ft_removespc_left(char *str);
+char					*ft_removespc_right(char *str);
+char					*ft_readstring(char *src, int inic, int size);
+t_dic					*dic_create(char *nb, char *text);
+void					copy_str(char *dest, char *src);
+char					*clean_number(char *str);
+int						busca_char(char *cadena, char busqueda);
+char					*dic_search(t_dic *list, char *str);
+
 #endif

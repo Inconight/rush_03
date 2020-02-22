@@ -1,4 +1,4 @@
-SRCS	= main.c busca_char.c is_printer_chars.c ft_removespc.c strstr.c clean_number.c copy_str.c dic_create.c ft_readstring.c read_line.c
+SRCS	= main.c busca_char.c is_printer_chars.c ft_removespc.c strstr.c clean_number.c copy_str.c dic_create.c ft_readstring.c read_line.c dic_search.c
 OBJS	= ${SRCS:.c=.o}
 NAME	= rush-02
 CC		= cc

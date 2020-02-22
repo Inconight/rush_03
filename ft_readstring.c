@@ -6,12 +6,12 @@
 /*   By: rpunet <rpunet@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 17:20:09 by rpunet            #+#    #+#             */
-/*   Updated: 2020/02/22 17:21:52 by rpunet           ###   ########.fr       */
+/*   Updated: 2020/02/23 00:42:02 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <unistd.h>
+#include "rush.h"
 
 char	*ft_readstring(char *src, int inic, int size)
 {
