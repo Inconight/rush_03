@@ -1,0 +1,8 @@
+MANUEL	char *quitar_espacios_izquierda(char *cadena)
+SANDRA	char *quitar_espacios_derecha(char *cadena)
+
+		char *ft_readstring(int inic, int size, char *chadena)
+
+
+
+imprimir diccionario
