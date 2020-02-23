@@ -1,13 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   imprimir.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rnavarre <rnavarre@student.42madrid>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/23 01:07:43 by rnavarre          #+#    #+#             */
+/*   Updated: 2020/02/23 01:10:08 by rnavarre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
+#include "rush.h"
 
-typedef		struct		s_dic
-{
-        char	*nb;
-        char	*text;
-        struct s_dictionary1    *next;
-} t_dic;
-
-void	imprime(char *numero, s_dic buscame);
+void	imprime(char *numero, t_dic buscame)
 {
 	int 	i;
 	int 	size;
@@ -19,7 +25,7 @@ void	imprime(char *numero, s_dic buscame);
 	size = 0;
 	while (numero[size] != 0)
 		size++;
-	if (numero[0] = 0 && size == 1)
+	if (numero[0] == 0 && size == 1)
 		dic_search(lista, '0');
 	else 
 	{

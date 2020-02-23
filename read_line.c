@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 16:56:48 by marvin            #+#    #+#             */
-/*   Updated: 2020/02/23 00:55:49 by rnavarre         ###   ########.fr       */
+/*   Updated: 2020/02/23 01:17:53 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,10 @@ char	*read_line(char *path)
 		copy = (char *)malloc(1024);
 		if (copy == NULL)
 			return (NULL);
-		i = 0;
-		while (1)
-		{
-			read(descriptor, &copy[i], 1);
+		i = -1;
+		while (read(descriptor, &copy[++i], 1))
 			if (copy[i] == '\n')
 				break ;
-			i++;
-		}
 		copy[i] = '\0';
 		close(descriptor);
 		buff = malloc(i);
