@@ -6,7 +6,7 @@
 /*   By: slopez-p <slopez-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 12:08:31 by slopez-p          #+#    #+#             */
-/*   Updated: 2020/02/23 15:14:27 by slopez-p         ###   ########.fr       */
+/*   Updated: 2020/02/23 15:49:16 by slopez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,30 @@ int		main(int argc, char *argv[])
 	t_dic	*dictionary;
 
 	i = 0;
-//	g_error = 0;
-#ifdef DEBUG
+	numero = 0;
 	printf("%d argumentos:\n", argc);
 	while (i < argc)
 	{
 		printf ("%d: %s\n", i, argv[i]);
 		i++;
 	}
-#endif
-	if (argc == 3)
+
+	if (argc == 3 && argv[1] != 0 && argv[2][0] != 0)
 	{
 		file = argv[1];
 		numero = clean_number(argv[2]);
 		if (!numero)
-			printf("Error\n");
+			printf("Error1\n");
 	}
-	else if (argc == 2)
+	else if (argc == 2 && argv[1][0] != 0)
+	{
 		numero = clean_number(argv[1]);
 		if (!numero)
-			printf("Error\n");
+			printf("Error2\n");
+	}
 	else
 	{
-		printf("Error\n");
+		printf("Error3\n");
 		return (0);
 	}
 	if (!numero)

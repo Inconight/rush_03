@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_number.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rnavarre <rnavarre@student.42madrid>       +#+  +:+       +#+        */
+/*   By: slopez-p <slopez-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 18:51:27 by rnavarre          #+#    #+#             */
-/*   Updated: 2020/02/23 05:10:11 by rnavarre         ###   ########.fr       */
+/*   Updated: 2020/02/23 15:48:24 by slopez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,9 @@ char	*clean_number(char *str)
 	digitos = 0;
 	str = ft_removespc_left(str);
 	str = ft_removespc_right(str);
-#ifdef DEBUG
+
 	if (str[i] != 0 && str[i] == '+')
-	{
 		i++;
-		printf("signo = +");
-	}
-#endif		
 	while (str[i] == '0')
 	{
 		if (str[i + 1] >= '0' && str[i + 1] <= '9')
@@ -43,7 +39,7 @@ char	*clean_number(char *str)
 			break;
 	}
 	p_inicial = i;
-	while (str[i] != 0 && str[i] >= '0' && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
 		i++;
 		digitos++;
@@ -67,14 +63,10 @@ char	*clean_number(char *str)
 				i++;
 			}
 			numero[i] = 0;
-#ifdef DEBUG
 			printf("%s\n", numero);
-#endif		
 		}
 	}
 	
-#ifdef DEBUG
 	printf("\tentrada = <%s> y tiene %d cifras\n", numero, digitos);
-#endif		
 	return(numero);
 }
