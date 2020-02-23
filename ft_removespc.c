@@ -6,11 +6,13 @@
 /*   By: mrubio <mrubio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 17:40:27 by mrubio            #+#    #+#             */
-/*   Updated: 2020/02/22 18:26:47 by mrubio           ###   ########.fr       */
+/*   Updated: 2020/02/23 05:17:28 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "rush.h"
+#include <stdbool.h>
 
 char	*ft_removespc_left(char *str)
 {
@@ -47,20 +49,21 @@ char	*ft_removespc_right(char *str)
 	char	*resultado;
 
 	i = 0;
-	while (str[i] != '\0')
-		i++;
-	while (str[i] == '\0' || str[i] == '\t' || str[i] == '\n' ||
-	str[i] == '\v' || str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
-		i--;
-	resultado = malloc(i + 1);
-	if (resultado == 0)
-		return (NULL);
-	resultado[i] = '\0';
-	i--;
-	while (i >= 0)
+	while (str[i])
 	{
-		resultado[i] = str[i + 1];
+		if (!((str[i] >= '0' && str[i] <= '9') || str[i] == '+'))
+			break ;
+		i++;
+	}
+
+	if ((resultado = malloc(i)) == NULL)
+		return (NULL);
+	i--;
+	while (i >=  0)
+	{
+		resultado[i] = str[i];
 		i--;
 	}
+
 	return (resultado);
 }

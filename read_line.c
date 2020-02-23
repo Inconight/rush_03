@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 16:56:48 by marvin            #+#    #+#             */
-/*   Updated: 2020/02/23 02:15:15 by rnavarre         ###   ########.fr       */
+/*   Updated: 2020/02/23 06:58:17 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,48 @@
 #include <fcntl.h>
 #include "rush.h"
 
-int		load_dictionary(char *path)
+void	print_struct(t_dic *dictionary)
+{
+	while (dictionary != NULL)
+	{
+		printf("num = '%s'\nitext = '%s'\n", dictionary->nb, dictionary->text);
+		dictionary = dictionary->next;
+	}
+}
+
+t_dic	*load_dictionary(char *path)
 {
 	int		fd;
 	char	*line;
+	t_dic	*dictionary;
+	int 	position;
+	char 	*num;
+	char	*text;
 
+	dictionary = NULL;
 	line = NULL;
 	if ((fd = open(path, O_RDONLY)) == -1)
 	{
 		printf("ERROR\n");
-		return (-1);
+		return (NULL);
 	}
 	else
 	{
-		while (line != NULL)
+		while ((line = read_line(fd)) !=  NULL)
 		{
-			line = read_line(fd);
-
+			position = busca_char(line, ':');
+			num = ft_readstring(line, 0, position);
+			text = ft_readstring(line, position + 1, 0);
+			num = ft_removespc_right(num);
+			text = ft_removespc_left(text);
+			// TODO comprobar si son letras, si son numeros antes de continuar
+			dictionary = dic_create(dictionary, num, text);
 		}
+
+		print_struct(dictionary);
 	}
-	return (0);
+	close(fd);
+	return (dictionary);
 }
 
 char	*read_line(int fd)
@@ -46,15 +68,14 @@ char	*read_line(int fd)
 
 	copy = NULL;
 	buffer = NULL;
-	buffer = (char *)malloc(1024);
-	if (buffer == NULL)
+	if ((buffer = malloc(1024))	== NULL)
 		return (NULL);
 	i = -1;
 	while (read(fd, &buffer[++i], 1))
 		if (buffer[i] == '\n')
 			break ;
 	buffer[i] = '\0';
-	copy = malloc(i);
+	copy = malloc(i + 1);
 	if (copy == NULL)
 		return (NULL);
 	copy_str(copy, buffer);

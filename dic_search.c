@@ -6,7 +6,7 @@
 /*   By: vpetrova <r11tsa@yahoo.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 21:29:21 by vpetrova          #+#    #+#             */
-/*   Updated: 2020/02/23 00:49:03 by rnavarre         ###   ########.fr       */
+/*   Updated: 2020/02/23 07:37:13 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void		ft_print(char *str)
 
 char		*dic_search(t_dic *current, char *numero)
 {
-	int			same;
-	int			i;
+	int		i;
+	int		same;
 
 	while (current != NULL)
 	{
@@ -69,8 +69,9 @@ char		*dic_search(t_dic *current, char *numero)
 		if (same == 1)
 		{
 			ft_print(current->text);
-			return (current->text);
-		}
+			write(1, " ", 1);
+		    return (current->text);
+	    }
 		current = current->next;
 	}
 	return (NULL);

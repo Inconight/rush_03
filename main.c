@@ -6,7 +6,7 @@
 /*   By: slopez-p <slopez-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 12:08:31 by slopez-p          #+#    #+#             */
-/*   Updated: 2020/02/23 02:40:45 by rnavarre         ###   ########.fr       */
+/*   Updated: 2020/02/23 03:01:17 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 #include <unistd.h>
 #include "rush.h"
 
-int		g_error;
+//int		g_error;
 
 int		main(int argc, char *argv[])
 {
 	char	*numero;
-//	char	*diccionario = "./numbers.dict";
+	char	*file = "numbers.dict";
 	int		i;
+	t_dic	*dictionary;
 
 	i = 0;
-	g_error = 0;
+//	g_error = 0;
 #ifdef DEBUG
 	printf("%d argumentos:\n", argc);
 	while (i < argc)
@@ -35,23 +36,25 @@ int		main(int argc, char *argv[])
 #endif
 	if (argc == 3)
 	{
-//		carga_diccionario(argv[1], diccionario);
+		file = argv[1];
 		numero = clean_number(argv[2]);
 		if (!numero)
-			g_error = 1;
+		{
+			printf("Error\n");
+			return (0);
+		}
 	}
 	else if (argc == 2)
 		numero = clean_number(argv[1]);
 	else
-		g_error = 1;
-	if (g_error)
 	{
-		write(1, "error\n", 6);
-		return (1);
+		printf("Error\n");
+		return (0);
 	}
+	dictionary = load_dictionary(file);
 #ifdef DEBUG
 	printf("numero en el main!! %s\n", numero);
 #endif
-	// imprime(numero, diccionario);
+	imprime(numero, dictionary);
 	return (0);
 }

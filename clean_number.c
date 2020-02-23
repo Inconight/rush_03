@@ -6,7 +6,7 @@
 /*   By: rnavarre <rnavarre@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 18:51:27 by rnavarre          #+#    #+#             */
-/*   Updated: 2020/02/23 00:52:03 by rnavarre         ###   ########.fr       */
+/*   Updated: 2020/02/23 05:10:11 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ char	*clean_number(char *str)
 #endif		
 	i = 0;
 	digitos = 0;
-	str = ft_removespc_right(str);
 	str = ft_removespc_left(str);
+	str = ft_removespc_right(str);
 #ifdef DEBUG
 	if (str[i] != 0 && str[i] == '+')
 	{

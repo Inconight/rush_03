@@ -6,36 +6,34 @@
 /*   By: rpunet <rpunet@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 17:20:09 by rpunet            #+#    #+#             */
-/*   Updated: 2020/02/23 01:43:58 by rnavarre         ###   ########.fr       */
+/*   Updated: 2020/02/23 06:48:35 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "rush.h"
+#include <stdio.h>
 
 /* Extrae una cadena dada una posicion inicial y un tamaño */
-char	*ft_readstring(char *src, int inic, int size)
+char	*ft_readstring(char *src, int start, int size)
 {
 	int		i;
-	int		k;
 	char	*dest;
 
-	if (inic < 0 || size < 1)
+	if (start < 0)
 		return (NULL);
 	dest = NULL;
-	if ((dest = malloc(size)) == NULL)
+	if (size == 0)
+		size = ft_strlen(src) - start;
+	if ((dest = malloc(size + 1)) == NULL)
 		return (NULL);
 	i = 0;
-	k = 0;
-	while (src[i] != '\0')
+	
+	while (src[i + start]  && i < size + start)
 	{
-		if (i >= inic && i < (inic + size))
-		{
-			dest[k] = src[i];
-			k++;
-		}
+		dest[i] = src[i + start];
 		i++;
 	}
-	dest[k] = '\0';
+	dest[i] = 0;
 	return (dest);
 }

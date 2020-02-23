@@ -1,9 +1,9 @@
-SRCS	= main.c busca_char.c is_printer_chars.c ft_removespc.c strstr.c clean_number.c copy_str.c dic_create.c ft_readstring.c read_line.c dic_search.c imprime.c ft_char3.c imprime_cifras.c
+SRCS	= main.c busca_char.c is_printer_chars.c ft_removespc.c strstr.c clean_number.c copy_str.c dic_create.c ft_readstring.c read_line.c dic_search.c imprime.c ft_char3.c imprime_cifras.c ft_strlen.c
 OBJS	= ${SRCS:.c=.o}
 NAME	= rush-02
 CC		= cc
 RM		= rm -f
-CFLAGS	= -Wall -Wextra -Werror -DDEBUG
+CFLAGS	= -Wall -Wextra -Werror -DDEBUG -g
 DEBUG	= lldb
 .c.o:
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
