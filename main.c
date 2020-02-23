@@ -6,7 +6,7 @@
 /*   By: slopez-p <slopez-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 12:08:31 by slopez-p          #+#    #+#             */
-/*   Updated: 2020/02/23 13:15:41 by slopez-p         ###   ########.fr       */
+/*   Updated: 2020/02/23 15:14:27 by slopez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,19 @@ int		main(int argc, char *argv[])
 		file = argv[1];
 		numero = clean_number(argv[2]);
 		if (!numero)
-		{
 			printf("Error\n");
-			return (0);
-		}
 	}
 	else if (argc == 2)
 		numero = clean_number(argv[1]);
+		if (!numero)
+			printf("Error\n");
 	else
 	{
 		printf("Error\n");
 		return (0);
 	}
+	if (!numero)
+		return(0);
 	dictionary = load_dictionary(file);
 #ifdef DEBUG
 	printf("numero en el main!! %s\n", numero);
