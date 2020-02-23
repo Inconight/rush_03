@@ -6,7 +6,7 @@
 /*   By: slopez-p <slopez-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 12:08:31 by slopez-p          #+#    #+#             */
-/*   Updated: 2020/02/23 01:11:55 by rnavarre         ###   ########.fr       */
+/*   Updated: 2020/02/23 02:40:45 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "rush.h"
-
-char	*clean_number(char *str);
-void	carga_diccionario(char *str, char *diccionario);
 
 int		g_error;
 

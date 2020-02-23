@@ -6,13 +6,14 @@
 /*   By: rpunet <rpunet@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 17:20:09 by rpunet            #+#    #+#             */
-/*   Updated: 2020/02/23 00:42:02 by rnavarre         ###   ########.fr       */
+/*   Updated: 2020/02/23 01:43:58 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "rush.h"
 
+/* Extrae una cadena dada una posicion inicial y un tamaño */
 char	*ft_readstring(char *src, int inic, int size)
 {
 	int		i;

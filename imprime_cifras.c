@@ -1,20 +1,20 @@
 #include "rush.h"
 #include <stdlib.h>
 
-imprime_cifras(char *num3)
+void	imprime_cifras(t_dic *dictionary, char *num3)
 {
 	if (num3[0] != '0')
-		imprime_centena(num[0]);
+		imprime_centena(dictionary, num3);
 	if (num3[1] == '0')
-		imprime_decena(num);
+		imprime_decena(dictionary, num3);
 	if (num3[1] != '1' && num3[2] != 0)
-		imprime_unidad(num[2]);
+		imprime_unidad(dictionary, num3);
 }
 
-void	imprime_unidad(char *numero)
+void	imprime_unidad(t_dic *dictionary, char *numero)
 {
 	char 	*p_char;
-	int		i;
+//	int		i;
 
 	p_char = malloc(2);
 	if (p_char)
@@ -22,13 +22,14 @@ void	imprime_unidad(char *numero)
 		p_char[0] = numero[2];
 		p_char[1] = '\0';
 	}
-	dic_search(lista, p_char);
+	dic_search(dictionary, p_char);
+	free(p_char);
 }
 
-void	imprime_decena(char *numero)
+void	imprime_decena(t_dic *dictionary, char *numero)
 {
 	char 	*p_char;
-	int		i;
+//	int		i;
 
 	p_char = malloc(3);
 	if (p_char)
@@ -38,19 +39,19 @@ void	imprime_decena(char *numero)
 		p_char[2] = '\0';
 	}
 	if (numero[1] == 1)
-		dic_search(lista, p_char);
+		dic_search(dictionary, p_char);
 	else if (numero[1] != 0)
 	{
-		p_char[1] = '\0'
-		dic_search(lista, p_char);
+	p_char[1] = '\0';
+		dic_search(dictionary, p_char);
 	}
 	free(p_char);
 }
 
-void	imprime_centena(char *numero)
+void	imprime_centena(t_dic *dictionary, char *numero)
 {
 	char 	*p_char;
-	int		i;
+//	int		i;
 
 	p_char = malloc(2);
 	if (p_char)
@@ -58,11 +59,12 @@ void	imprime_centena(char *numero)
 		p_char[0] = numero[0];
 		p_char[1] = '\0';
 	}
-	dic_search(lista, p_char);
-	dic_search(lista, "100");
+	dic_search(dictionary, p_char);
+	dic_search(dictionary, "100");
+	free(p_char);
 }
 
-void	imprime_miles(int ceros)
+void	imprime_miles(t_dic *dictionary, int ceros)
 {
 	char 	*p_char;
 	int 	size;
@@ -72,7 +74,7 @@ void	imprime_miles(int ceros)
 	i = 1;
 	p_char = 0;
 	p_char = malloc(size);
-	if (pchar)
+	if (p_char)
 		p_char[0] = '1';
 	while (i < size)
 	{
@@ -80,7 +82,7 @@ void	imprime_miles(int ceros)
 		i++;
 	}
 	p_char[i] = '\0';
-	dic_search(lista, p_char)
+	dic_search(dictionary, p_char);
 	free(p_char);	
 }
 

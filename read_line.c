@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 16:56:48 by marvin            #+#    #+#             */
-/*   Updated: 2020/02/23 01:17:53 by rnavarre         ###   ########.fr       */
+/*   Updated: 2020/02/23 02:15:15 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,51 @@
 #include <fcntl.h>
 #include "rush.h"
 
-char	*read_line(char *path)
+int		load_dictionary(char *path)
 {
-	int		descriptor;
-	int		i;
-	char	*copy;
-	char	*buff;
+	int		fd;
+	char	*line;
 
-	copy = NULL;
-	buff = NULL;
-	if ((descriptor = open(path, O_RDONLY)) == -1)
+	line = NULL;
+	if ((fd = open(path, O_RDONLY)) == -1)
+	{
 		printf("ERROR\n");
+		return (-1);
+	}
 	else
 	{
-		copy = (char *)malloc(1024);
-		if (copy == NULL)
-			return (NULL);
-		i = -1;
-		while (read(descriptor, &copy[++i], 1))
-			if (copy[i] == '\n')
-				break ;
-		copy[i] = '\0';
-		close(descriptor);
-		buff = malloc(i);
-		copy_str(buff, copy);
-		free(copy);
+		while (line != NULL)
+		{
+			line = read_line(fd);
+
+		}
 	}
-	return (buff);
+	return (0);
+}
+
+char	*read_line(int fd)
+{
+	int		i;
+	char	*copy;
+	char	*buffer;
+
+	copy = NULL;
+	buffer = NULL;
+	buffer = (char *)malloc(1024);
+	if (buffer == NULL)
+		return (NULL);
+	i = -1;
+	while (read(fd, &buffer[++i], 1))
+		if (buffer[i] == '\n')
+			break ;
+	buffer[i] = '\0';
+	copy = malloc(i);
+	if (copy == NULL)
+		return (NULL);
+	copy_str(copy, buffer);
+	free(buffer);
+	if (i)
+		return (copy);
+	else
+		return NULL;
 }
