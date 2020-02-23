@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   copy_str.h                                         :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slopez-p <slopez-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/22 20:49:10 by rnavarre          #+#    #+#             */
-/*   Updated: 2020/02/23 12:25:22 by slopez-p         ###   ########.fr       */
+/*   Created: 2020/02/19 15:17:27 by scordero          #+#    #+#             */
+/*   Updated: 2020/02/23 12:13:07 by slopez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COPY_STR_H
-# define COPY_STR_H
+char	*ft_strstr(char *str, char *to_find)
+{
+	unsigned int i;
+	unsigned int n;
 
-void	copy_str(char *dest, char *src);
-
-#endif
+	i = 0;
+	if (to_find[0] == '\0')
+		return (str);
+	while (str[i] != '\0')
+	{
+		n = 0;
+		while (str[i + n] != '\0' && str[i + n] == to_find[n])
+		{
+			if (to_find[n + 1] == '\0')
+				return (&str[i]);
+			n++;
+		}
+		i++;
+	}
+	return (0);
+}

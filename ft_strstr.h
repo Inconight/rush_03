@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   copy_str.h                                         :+:      :+:    :+:   */
+/*   ft_strstr.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slopez-p <slopez-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/22 20:49:10 by rnavarre          #+#    #+#             */
-/*   Updated: 2020/02/23 12:25:22 by slopez-p         ###   ########.fr       */
+/*   Created: 2020/02/22 18:33:21 by rnavarre          #+#    #+#             */
+/*   Updated: 2020/02/23 12:13:09 by slopez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COPY_STR_H
-# define COPY_STR_H
+#ifndef STRSTR_H
+# define STRSTR_H
 
-void	copy_str(char *dest, char *src);
+char	*ft_strstr(char *str, char *to_find);
 
 #endif

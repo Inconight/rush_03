@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   dic_search.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpetrova <r11tsa@yahoo.com>                +#+  +:+       +#+        */
+/*   By: slopez-p <slopez-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 21:29:21 by vpetrova          #+#    #+#             */
-/*   Updated: 2020/02/23 07:37:13 by rnavarre         ###   ########.fr       */
+/*   Updated: 2020/02/23 13:50:52 by slopez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 #include "rush.h"
 
 /*

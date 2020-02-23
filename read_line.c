@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_file.c                                        :+:      :+:    :+:   */
+/*   read_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: slopez-p <slopez-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 16:56:48 by marvin            #+#    #+#             */
-/*   Updated: 2020/02/23 06:58:17 by rnavarre         ###   ########.fr       */
+/*   Updated: 2020/02/23 13:18:12 by slopez-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,27 @@ t_dic	*load_dictionary(char *path)
 	}
 	else
 	{
+//		printf("comienza la lectura del archivo\n");
 		while ((line = read_line(fd)) !=  NULL)
 		{
 			position = busca_char(line, ':');
+//			printf("posicion de <:> =%d\n", position);
 			num = ft_readstring(line, 0, position);
+//			printf("num = <%s>\n", num);
 			text = ft_readstring(line, position + 1, 0);
+//			printf("text = <%s>\n", text);
+			
 			num = ft_removespc_right(num);
+//			printf("num sin espacios = <%s>\n", num);
+
 			text = ft_removespc_left(text);
+//			printf("text sin espacios = <%s>\n", text);
+
 			// TODO comprobar si son letras, si son numeros antes de continuar
 			dictionary = dic_create(dictionary, num, text);
 		}
 
-		print_struct(dictionary);
+//		print_struct(dictionary);
 	}
 	close(fd);
 	return (dictionary);
