@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strcmp.c                                           :+:      :+:    :+:   */
+/*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rnavarre <rnavarre@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/22 20:54:45 by marvin            #+#    #+#             */
-/*   Updated: 2020/02/23 17:58:31 by rnavarre         ###   ########.fr       */
+/*   Created: 2020/02/23 15:34:26 by rnavarre          #+#    #+#             */
+/*   Updated: 2020/02/23 15:34:42 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		strcmp(char *s1, char *s2)
-{
-	int	equal;
-	int	i;
+#include "rush.h"
 
-	equal = 0;
+void		ft_print(char *str)
+{
+	int i;
+
 	i = 0;
-	while (s1[i] != '\0' || s2[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if (s1[i] == s2[i])
-			equal = 0;
-		else
-		{
-			if (s1[i] < s2[i])
-				return (-1);
-			else
-				return (1);
-		}
+		ft_putchar(str[i]);
 		i++;
 	}
-	return (equal);
 }

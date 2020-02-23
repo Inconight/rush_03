@@ -6,7 +6,7 @@
 /*   By: slopez-p <slopez-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 16:56:48 by marvin            #+#    #+#             */
-/*   Updated: 2020/02/23 13:18:12 by slopez-p         ###   ########.fr       */
+/*   Updated: 2020/02/23 18:37:53 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,18 @@
 #include <fcntl.h>
 #include "rush.h"
 
-void	print_struct(t_dic *dictionary)
-{
-	while (dictionary != NULL)
-	{
-		printf("num = '%s'\nitext = '%s'\n", dictionary->nb, dictionary->text);
-		dictionary = dictionary->next;
-	}
-}
-
 t_dic	*load_dictionary(char *path)
 {
 	int		fd;
 	char	*line;
 	t_dic	*dictionary;
+	t_dic	*current;
 	int 	position;
 	char 	*num;
 	char	*text;
 
 	dictionary = NULL;
+	current = NULL;
 	line = NULL;
 	if ((fd = open(path, O_RDONLY)) == -1)
 	{
@@ -43,27 +36,19 @@ t_dic	*load_dictionary(char *path)
 	}
 	else
 	{
-//		printf("comienza la lectura del archivo\n");
 		while ((line = read_line(fd)) !=  NULL)
 		{
 			position = busca_char(line, ':');
-//			printf("posicion de <:> =%d\n", position);
 			num = ft_readstring(line, 0, position);
-//			printf("num = <%s>\n", num);
 			text = ft_readstring(line, position + 1, 0);
-//			printf("text = <%s>\n", text);
-			
 			num = ft_removespc_right(num);
-//			printf("num sin espacios = <%s>\n", num);
-
 			text = ft_removespc_left(text);
-//			printf("text sin espacios = <%s>\n", text);
-
 			// TODO comprobar si son letras, si son numeros antes de continuar
-			dictionary = dic_create(dictionary, num, text);
+			current = dic_create(current, num, text);
+			if (dictionary == NULL)
+				dictionary = current;
 		}
 
-//		print_struct(dictionary);
 	}
 	close(fd);
 	return (dictionary);
@@ -87,7 +72,7 @@ char	*read_line(int fd)
 	copy = malloc(i + 1);
 	if (copy == NULL)
 		return (NULL);
-	copy_str(copy, buffer);
+	ft_strcpy(copy, buffer);
 	free(buffer);
 	if (i)
 		return (copy);

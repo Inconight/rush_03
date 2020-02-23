@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strcmp.c                                           :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rnavarre <rnavarre@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/22 20:54:45 by marvin            #+#    #+#             */
-/*   Updated: 2020/02/23 17:58:31 by rnavarre         ###   ########.fr       */
+/*   Created: 2020/02/23 16:14:21 by rnavarre          #+#    #+#             */
+/*   Updated: 2020/02/23 17:18:21 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		strcmp(char *s1, char *s2)
+char	*ft_strcpy(char *dst, char *str)
 {
-	int	equal;
-	int	i;
+	int i;
 
-	equal = 0;
 	i = 0;
-	while (s1[i] != '\0' || s2[i] != '\0')
-	{
-		if (s1[i] == s2[i])
-			equal = 0;
-		else
-		{
-			if (s1[i] < s2[i])
-				return (-1);
-			else
-				return (1);
-		}
+	while (str[i])
+		dst[i] = str[i];
 		i++;
-	}
-	return (equal);
+	dst[i] = 0;
+	return dst;
 }

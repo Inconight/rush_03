@@ -6,12 +6,13 @@
 /*   By: rnavarre <rnavarre@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 17:39:36 by rnavarre          #+#    #+#             */
-/*   Updated: 2020/02/23 14:11:47 by slopez-p         ###   ########.fr       */
+/*   Updated: 2020/02/23 18:29:28 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RUSH_H
 # define RUSH_H
+# include <stdbool.h>
 
 struct					s_dic
 {
@@ -32,14 +33,20 @@ char					*clean_number(char *str);
 int						busca_char(char *cadena, char busqueda);
 t_dic					*dic_create(t_dic *dictionary, char *nb, char *text);
 char					*dic_search(t_dic *list, char *str);
-void					imprime(char *numero, t_dic *buscame);
+bool					imprime(char *numero, t_dic *buscame);
 t_dic					*load_dictionary(char *path);
 char					*ft_char3(char *str, int size);
-void					imprime_cifras(t_dic *dictionary, char *num3);
-void					imprime_unidad(t_dic *dictionary, char *numero);
-void					imprime_decena(t_dic *dictionary, char *numero);
-void					imprime_centena(t_dic *dictionary, char *numero);
-void					imprime_miles(t_dic *dictionary, int ceros, char *before);
+bool					imprime_cifras(t_dic *dictionary, char *num3);
+char					*imprime_unidad(t_dic *dictionary, char *numero);
+char					*imprime_decena(t_dic *dictionary, char *numero);
+char					*imprime_centena(t_dic *dictionary, char *numero);
+char					*imprime_miles(t_dic *dictionary, int ceros, char *before);
 int						ft_strlen(char *str);
+char					*ft_strjoin(char *str1, char *str2, char separator);
+char					*ft_strcpy(char *dst, char *str);
+void					ft_putchar(char c);
+void					ft_static_print(char *str, bool do_print);
+void					ft_print(char *str);
+int						ft_strcmp(char *s1, char *s2);
 
 #endif

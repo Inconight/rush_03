@@ -6,42 +6,13 @@
 /*   By: slopez-p <slopez-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 21:29:21 by vpetrova          #+#    #+#             */
-/*   Updated: 2020/02/23 13:50:52 by slopez-p         ###   ########.fr       */
+/*   Updated: 2020/02/23 18:00:11 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
 #include "rush.h"
-
-/*
-** WARRING
-** Be careful of the type of the structure in the linked list!
-** ...
-** typedef struct					s_dic
-** {
-** 	char					*nb;
-** 	char					*text;
-** 	struct s_dic			*next;
-** }							t_dic;
-*/
-
-void		ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void		ft_print(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-}
 
 /*
 ** This is a function that search through teh linked list for a particular
@@ -67,36 +38,11 @@ char		*dic_search(t_dic *current, char *numero)
 			}
 			i++;
 		}
-		if (same == 1)
+		if (same == 1 && ft_strlen(numero) == ft_strlen(current->nb))
 		{
-			ft_print(current->text);
-			write(1, " ", 1);
 		    return (current->text);
 	    }
 		current = current->next;
 	}
 	return (NULL);
 }
-
-/*
-** int main()
-** {
-** 	t_dic a,b,c,d;
-** 	t_dic *begin;
-** 	begin= &a;
-** 	a.nb = "100";
-** 	a.text = "hundred";
-** 	a.next = &b;
-** 	b.nb = "2";
-** 	b.text = "two";
-** 	b.next = &c;
-** 	c.nb = "33";
-** 	c.text = "thirty-three";
-** 	c.next = &d;
-** 	d.nb = "1";
-** 	d.text = "one";
-** 	d.next = NULL;
-** 	char *something =  dic_search(begin, "31");
-** 	(void)something;
-** }
-*/

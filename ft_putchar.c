@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dic_create.c                                       :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rnavarre <rnavarre@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/22 20:33:46 by rnavarre          #+#    #+#             */
-/*   Updated: 2020/02/23 18:29:38 by rnavarre         ###   ########.fr       */
+/*   Created: 2020/02/23 15:33:47 by rnavarre          #+#    #+#             */
+/*   Updated: 2020/02/23 15:37:52 by rnavarre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "rush.h"
+#include <unistd.h>
 
-t_dic	*dic_create(t_dic *dictionary, char *nb, char *text)
+void		ft_putchar(char c)
 {
-	t_dic *new_dic;
-
-	new_dic = (t_dic *)malloc(sizeof(t_dic));
-	new_dic->nb = nb;
-	new_dic->text = text;
-	if (dictionary != NULL)
-		dictionary->next = new_dic;
-	new_dic->next = NULL;
-	return (new_dic);
+	write(1, &c, 1);
 }
+
