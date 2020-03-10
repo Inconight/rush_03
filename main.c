@@ -14,9 +14,7 @@
 #include <unistd.h>
 #include "rush.h"
 
-//int		g_error;
-
-int		main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
 	char	*numero;
 	char	*file = "numbers.dict";
